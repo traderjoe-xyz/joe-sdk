@@ -22,6 +22,7 @@
     "prepublishOnly": "tsdx build"
   },
   "dependencies": {
+    "@joe-defi/core": "^0.0.2",
     "@openzeppelin/cli": "^2.8.2",
     "@pangolindex/exchange-contracts": "^1.0.1",
     "@uniswap/v2-core": "^1.0.1",
