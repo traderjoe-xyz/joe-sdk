@@ -56,7 +56,7 @@ export const ROUTER_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.AVALANCHE]: '0xefa94DE7a4656D787667C749f7E1223D71E9FD88' // TODO
 }
 
-export const MASTERJOE_ADDRESS: { [chainId in ChainId]: string } = {
+export const MASTERCHEF_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.RINKEBY]: '0x6e84a6216eA6dACC71eE8E6b0a5B7322EEbC0fDd',
   [ChainId.FUJI]: '0x2d388F47c3Ae5CC0C7F8ad73296B208cfaCd35ae',
   [ChainId.AVALANCHE]: '0xefa94DE7a4656D787667C749f7E1223D71E9FD88'
