@@ -1,7 +1,7 @@
 {
   "name": "@joe-defi/sdk",
   "license": "MIT",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "🛠 An SDK for building applications on top of Joe DeFi.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
