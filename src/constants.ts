@@ -62,7 +62,7 @@ export const MASTERCHEF_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.AVALANCHE]: '0xefa94DE7a4656D787667C749f7E1223D71E9FD88' // TODO
 }
 
-export const BORING_HELPER_ADDRESS: { [chainId in ChainId]: string } = {
+export const BORINGHELPER_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.RINKEBY]: '0x5cFcA5b2149A20A166508B28e5FCFA65c44c6B9c',
   [ChainId.FUJI]: '0xD28be693a573a26f50195213613EC893Ad5c4460',
   [ChainId.AVALANCHE]: '0x5cFcA5b2149A20A166508B28e5FCFA65c44c6B9c' // TODO
