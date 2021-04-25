@@ -39,7 +39,7 @@ export const BAR_ADDRESS: { [chainId in ChainId]: string } = {
 }
 
 export const MAKER_ADDRESS: { [chainId in ChainId]: string } = {
-  [ChainId.RINKEBY]: '0x4fBccB4B0b69FDd7863dF0372E20C3Cc3244729E',
+  [ChainId.RINKEBY]: '0xA0496B2EAb651c57e91754b2befFE71a77Fa9b7d',
   [ChainId.FUJI]: '0x0529719e33AA2f15c13b12be01D7E876454Caf02',
   [ChainId.AVALANCHE]: '0xefa94DE7a4656D787667C749f7E1223D71E9FD88' // TODO
 }
@@ -63,7 +63,7 @@ export const MASTERCHEF_ADDRESS: { [chainId in ChainId]: string } = {
 }
 
 export const BORINGHELPER_ADDRESS: { [chainId in ChainId]: string } = {
-  [ChainId.RINKEBY]: '0xD9951B13957a70d07fC872A69D9fF0DdE5d06857',
+  [ChainId.RINKEBY]: '0x83A341dA38346d480790FE0420fD8B0cc8fb83e8',
   [ChainId.FUJI]: '0xD28be693a573a26f50195213613EC893Ad5c4460',
   [ChainId.AVALANCHE]: '0x5cFcA5b2149A20A166508B28e5FCFA65c44c6B9c' // TODO
 }
