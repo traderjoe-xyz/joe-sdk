@@ -57,7 +57,7 @@ export const MAKER_ADDRESS: { [chainId in ChainId]: string } = {
 }
 
 export const ROLL_ADDRESS: { [chainId in ChainId]: string } = {
-  [ChainId.RINKEBY]: '0x4634DEBD0D0442fBF1c3567cB8C8aeb2d2144CE6',
+  [ChainId.RINKEBY]: '0xe59bB0090DE7bDB1198FEC7018134691F404d0D7',
   [ChainId.FUJI]: '0x41d5f5F66e4cEd197Ff273308A1c194E9E249f4F',
   [ChainId.AVALANCHE]: '0xefa94DE7a4656D787667C749f7E1223D71E9FD88' // TODO
 }
