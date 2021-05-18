@@ -1,16 +1,16 @@
 {
-  "name": "@joe-defi/sdk",
+  "name": "@traderjoe-xyz/sdk",
   "license": "MIT",
   "version": "0.1.3",
-  "description": "🛠 An SDK for building applications on top of Joe DeFi.",
+  "description": "🛠 An SDK for building applications on top of Trader Joe.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/joe-defi/joe-sdk",
+  "repository": "https://github.com/traderjoe-xyz/joe-sdk",
   "keywords": [
-    "joe-defi",
+    "traderjoe-xyz",
     "avalanche"
   ],
   "module": "dist/sdk.esm.js",
@@ -22,7 +22,6 @@
     "prepublishOnly": "tsdx build"
   },
   "dependencies": {
-    "@joe-defi/core": "^0.0.2",
     "@openzeppelin/cli": "^2.8.2",
     "@uniswap/v2-core": "^1.0.1",
     "big.js": "^5.2.2",
@@ -45,6 +44,7 @@
     "@ethersproject/networks": "^5.0.2",
     "@ethersproject/providers": "^5.0.5",
     "@ethersproject/solidity": "^5.0.2",
+    "@traderjoe-xyz/core": "^0.2.2",
     "@types/big.js": "^4.0.5",
     "@types/jest": "^24.0.25",
     "babel-plugin-transform-jsbi-to-bigint": "^1.3.1",
