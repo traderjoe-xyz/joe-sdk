@@ -44,6 +44,12 @@ export const BAR_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.AVALANCHE]: '0xefa94DE7a4656D787667C749f7E1223D71E9FD88' // TODO
 }
 
+export const ZAP_ADDRESS: { [chainId in ChainId]: string } = {
+  [ChainId.RINKEBY]: '0x5BBFA5f49EC557eABA9427Ac434F21b69113Fe20', 
+  [ChainId.FUJI]: '0x5BBFA5f49EC557eABA9427Ac434F21b69113Fe20', // TODO
+  [ChainId.AVALANCHE]: '0xefa94DE7a4656D787667C749f7E1223D71E9FD88' // TODO
+}
+
 export const ROUTER_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.RINKEBY]: '0xF8bCDda9f6545a1A1A6AcDad6f9Abd1e863423dA', 
   [ChainId.FUJI]: '0x5db0735cf88F85E78ed742215090c465979B5006',
