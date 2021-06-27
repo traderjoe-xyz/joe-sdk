@@ -1724,9 +1724,9 @@
     defer-to-connect "^1.0.1"
 
 "@traderjoe-xyz/core@^0.5.2":
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/@traderjoe-xyz/core/-/core-0.5.2.tgz#9874e50c82251344628bb363220a89dc5815d5aa"
-  integrity sha512-ukCHZP028+y9qTzc5YabqVOe0oo7f0VLIZNhMgnPvhlJAQc7QfVyEqjjV9Cz8PkKXQj1UEpKbTumwGSSZMB8hQ==
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/@traderjoe-xyz/core/-/core-0.5.3.tgz#e94cf6367c6de720893ab6831566c0a324e13d3c"
+  integrity sha512-E2hhepvDaoIe2zlhi2QPkzU5OWQex622HCQdpv2UUWgUAf6QYHQnMalndcbXnaBFQV/sdiLqUztO/JMjy0Kn8g==
 
 "@truffle/error@^0.0.6":
   version "0.0.6"
