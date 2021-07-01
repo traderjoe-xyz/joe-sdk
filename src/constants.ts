@@ -41,7 +41,7 @@ export const MASTERCHEF_ADDRESS: { [chainId in ChainId]: string } = {
 export const BAR_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.RINKEBY]: '0x33A86aFC0f728882F48E5105bc98758b3eAe2081',
   [ChainId.FUJI]: '0x171B28d39De22EF001029117F3d241fF78c7DC5C',
-  [ChainId.AVALANCHE]: '0x931B5dFfeBF156B3c295f0C50bbAd494d35989BA'
+  [ChainId.AVALANCHE]: '0x57319d41F71E81F3c65F2a47CA4e001EbAFd4F33'
 }
 
 export const ZAP_ADDRESS: { [chainId in ChainId]: string } = {
