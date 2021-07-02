@@ -57,9 +57,9 @@ export const ROUTER_ADDRESS: { [chainId in ChainId]: string } = {
 }
 
 export const MAKER_ADDRESS: { [chainId in ChainId]: string } = {
-  [ChainId.RINKEBY]: '0x4247c5dBac51a135939CC904c34E4913B6bcDCFe',
+  [ChainId.RINKEBY]: '0xbEFE1d0756Da706B3F0EbaEa7b4ae10D0AdF2f3F',
   [ChainId.FUJI]: '0x0529719e33AA2f15c13b12be01D7E876454Caf02',
-  [ChainId.AVALANCHE]: '0xE8A191026e71C303b0f40F15be93403f7D529707'
+  [ChainId.AVALANCHE]: '0x861726BFE27931A4E22a7277bDe6cb8432b65856'
 }
 
 export const ROLL_ADDRESS: { [chainId in ChainId]: string } = {
@@ -71,7 +71,7 @@ export const ROLL_ADDRESS: { [chainId in ChainId]: string } = {
 export const BORINGHELPER_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.RINKEBY]: '0x9bB44606E6E201b5c1cCF54A4246cCb61A3D948a',
   [ChainId.FUJI]: '0xD28be693a573a26f50195213613EC893Ad5c4460',
-  [ChainId.AVALANCHE]: '0xDc0730f8fC5f0efA1c304716A50d0a96CE4A7c62'
+  [ChainId.AVALANCHE]: '0x1dd4D86180EEe39ac4fB35ECa67CACF608Ab5741'
 }
 
 export const BORINGTOKENSCANNER_ADDRESS: { [chainId in ChainId]: string } = {
