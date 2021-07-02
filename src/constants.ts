@@ -57,7 +57,7 @@ export const ROUTER_ADDRESS: { [chainId in ChainId]: string } = {
 }
 
 export const MAKER_ADDRESS: { [chainId in ChainId]: string } = {
-  [ChainId.RINKEBY]: '0xbEFE1d0756Da706B3F0EbaEa7b4ae10D0AdF2f3F',
+  [ChainId.RINKEBY]: '0x4247c5dBac51a135939CC904c34E4913B6bcDCFe',
   [ChainId.FUJI]: '0x0529719e33AA2f15c13b12be01D7E876454Caf02',
   [ChainId.AVALANCHE]: '0xE8A191026e71C303b0f40F15be93403f7D529707'
 }
