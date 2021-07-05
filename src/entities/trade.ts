@@ -258,7 +258,7 @@ export class Trade {
     // used in recursion.
     currentPairs: Pair[] = [],
     originalAmountIn: CurrencyAmount = currencyAmountIn,
-    bestTrades: Trade[] = [],
+    bestTrades: Trade[] = []
   ): Trade[] {
     invariant(pairs.length > 0, 'PAIRS')
     invariant(maxHops > 0, 'MAX_HOPS')
@@ -275,6 +275,8 @@ export class Trade {
     const tokenOut = wrappedCurrency(currencyOut, chainId)
     for (let i = 0; i < pairs.length; i++) {
       const pair = pairs[i]
+      console.log(`====================${i}======================`)
+      console.log('pair', pair)
       // pair irrelevant
       if (!pair.token0.equals(amountIn.token) && !pair.token1.equals(amountIn.token)) continue
       if (pair.reserve0.equalTo(ZERO) || pair.reserve1.equalTo(ZERO)) continue
@@ -282,14 +284,18 @@ export class Trade {
       let amountOut: TokenAmount
       try {
         ;[amountOut] = pair.getOutputAmount(amountIn, chainId)
+        console.log('amountOut', amountOut)
       } catch (error) {
         // input too low
+        console.log('_ERROR_')
         if (error.isInsufficientInputAmountError) {
+          console.log('_isInsufficientInputAmountError')
           continue
         }
         throw error
       }
       // we have arrived at the output token, so this is the final trade of one of the paths
+      console.log('amountOutToken', amountOut.token, 'tokenOut', tokenOut)
       if (amountOut.token.equals(tokenOut)) {
         sortedInsert(
           bestTrades,
