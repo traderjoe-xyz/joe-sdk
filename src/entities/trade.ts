@@ -277,6 +277,8 @@ export class Trade {
       const pair = pairs[i]
       console.log(`====================${i}======================`)
       console.log('pair', pair)
+      console.log('token0', pair.token0, 'token1', pair.token1, 'amountInToken', amountIn.token)
+      console.log('reserve0', pair.reserve0, 'reserve1', pair.reserve1)
       // pair irrelevant
       if (!pair.token0.equals(amountIn.token) && !pair.token1.equals(amountIn.token)) continue
       if (pair.reserve0.equalTo(ZERO) || pair.reserve1.equalTo(ZERO)) continue
