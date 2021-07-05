@@ -61,7 +61,18 @@ export function inputOutputComparator(a: InputOutput, b: InputOutput): number {
 export function tradeComparator(a: Trade, b: Trade) {
   const ioComp = inputOutputComparator(a, b)
   if (ioComp !== 0) {
-    console.log('a', a, 'b', b, 'ioComp', ioComp)
+    console.log(
+      'a.outputAmount',
+      a.outputAmount.toSignificant(6),
+      'a.inputAmount',
+      a.inputAmount.toSignificant(6),
+      'b.outputAmount',
+      b.outputAmount.toSignificant(6),
+      'b.inputAmount',
+      b.inputAmount.toSignificant(6),
+      'ioComp',
+      ioComp
+    )
     return ioComp
   }
 
