@@ -61,18 +61,6 @@ export function inputOutputComparator(a: InputOutput, b: InputOutput): number {
 export function tradeComparator(a: Trade, b: Trade) {
   const ioComp = inputOutputComparator(a, b)
   if (ioComp !== 0) {
-    console.log(
-      'a.outputAmount',
-      a.outputAmount.toSignificant(6),
-      'a.inputAmount',
-      a.inputAmount.toSignificant(6),
-      'b.outputAmount',
-      b.outputAmount.toSignificant(6),
-      'b.inputAmount',
-      b.inputAmount.toSignificant(6),
-      'ioComp',
-      ioComp
-    )
     return ioComp
   }
 
@@ -210,14 +198,6 @@ export class Trade {
     )
     this.nextMidPrice = Price.fromRoute(new Route(nextPairs, route.input))
     this.priceImpact = computePriceImpact(route.midPrice, this.inputAmount, this.outputAmount)
-    console.log(
-      'route',
-      route,
-      'midPrice',
-      route.midPrice.toSignificant(6),
-      'priceImpact',
-      this.priceImpact.toSignificant(6)
-    )
     this.chainId = chainId
   }
 
@@ -295,10 +275,6 @@ export class Trade {
     const tokenOut = wrappedCurrency(currencyOut, chainId)
     for (let i = 0; i < pairs.length; i++) {
       const pair = pairs[i]
-      console.log(`====================${i}======================`)
-      console.log('pair', pair)
-      console.log('token0', pair.token0, 'token1', pair.token1, 'amountInToken', amountIn.token)
-      console.log('reserve0', pair.reserve0.toSignificant(6), 'reserve1', pair.reserve1.toSignificant(6))
       // pair irrelevant
       if (!pair.token0.equals(amountIn.token) && !pair.token1.equals(amountIn.token)) continue
       if (pair.reserve0.equalTo(ZERO) || pair.reserve1.equalTo(ZERO)) continue
@@ -306,18 +282,14 @@ export class Trade {
       let amountOut: TokenAmount
       try {
         ;[amountOut] = pair.getOutputAmount(amountIn, chainId)
-        console.log('amountOut', amountOut)
       } catch (error) {
         // input too low
-        console.log('_ERROR_')
         if (error.isInsufficientInputAmountError) {
-          console.log('_isInsufficientInputAmountError')
           continue
         }
         throw error
       }
       // we have arrived at the output token, so this is the final trade of one of the paths
-      console.log('amountOutToken', amountOut.token, 'tokenOut', tokenOut)
       if (amountOut.token.equals(tokenOut)) {
         sortedInsert(
           bestTrades,
