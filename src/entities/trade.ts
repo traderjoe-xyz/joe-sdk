@@ -198,7 +198,7 @@ export class Trade {
     )
     this.nextMidPrice = Price.fromRoute(new Route(nextPairs, route.input))
     this.priceImpact = computePriceImpact(route.midPrice, this.inputAmount, this.outputAmount)
-    console.log('route', route, 'priceImpact', this.priceImpact)
+    console.log('route', route, 'midPrice', route.midPrice.toString(), 'priceImpact', this.priceImpact.toString())
     this.chainId = chainId
   }
 
