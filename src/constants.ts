@@ -47,7 +47,7 @@ export const BAR_ADDRESS: { [chainId in ChainId]: string } = {
 export const ZAP_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.RINKEBY]: '0x70c949152D2AC84FbB809228606db4654773D994',
   [ChainId.FUJI]: '0x5BBFA5f49EC557eABA9427Ac434F21b69113Fe20',
-  [ChainId.AVALANCHE]: '0x3bcDa00C257179d4abEE0d1d94a8A9720554f1C9'
+  [ChainId.AVALANCHE]: '0x2C7B8e971c704371772eDaf16e0dB381A8D02027'
 }
 
 export const ROUTER_ADDRESS: { [chainId in ChainId]: string } = {
