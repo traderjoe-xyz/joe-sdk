@@ -1,7 +1,7 @@
 {
   "name": "@traderjoe-xyz/sdk",
   "license": "MIT",
-  "version": "0.3.19",
+  "version": "0.3.20",
   "description": "🛠 An SDK for building applications on top of Trader Joe.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
