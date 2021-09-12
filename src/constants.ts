@@ -20,6 +20,9 @@ export enum Rounding {
   ROUND_UP
 }
 
+/**
+ * DEX SDK
+ */
 export const FACTORY_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.RINKEBY]: '0x86f83be9770894d8e46301b12E88e14AdC6cdb5F',
   [ChainId.FUJI]: '0x7eeccb3028870540EEc3D88C2259506f2d34fEE0',
@@ -109,4 +112,20 @@ export enum SolidityType {
 export const SOLIDITY_TYPE_MAXIMA = {
   [SolidityType.uint8]: JSBI.BigInt('0xff'),
   [SolidityType.uint256]: JSBI.BigInt('0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff')
+}
+
+/**
+ * Lending SDK
+ */
+
+export const UNITROLLER_ADDRESS: { [chainId in ChainId]: string } = {
+  [ChainId.RINKEBY]: '0x5b0a2Fa14808E34C5518E19f0DBc39F61d080B11',
+  [ChainId.FUJI]: '0x0000000000000000000000000000000000000000',
+  [ChainId.AVALANCHE]: '0x0000000000000000000000000000000000000000'
+}
+
+export const JAVAX_ADDRESS: { [chainId in ChainId]: string } = {
+  [ChainId.RINKEBY]: '0xAAFE9D8346AeFD57399E86d91bBfe256dc0DCAc0',
+  [ChainId.FUJI]: '0x0000000000000000000000000000000000000000',
+  [ChainId.AVALANCHE]: '0x0000000000000000000000000000000000000000'
 }
