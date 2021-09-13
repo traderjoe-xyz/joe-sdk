@@ -20,7 +20,8 @@ export {
   INIT_CODE_HASH,
   MINIMUM_LIQUIDITY,
   UNITROLLER_ADDRESS,
-  JAVAX_ADDRESS
+  JAVAX_ADDRESS,
+  JOELENSVIEW_ADDRESS
 } from './constants'
 
 export * from './errors'
@@ -29,3 +30,4 @@ export * from './router'
 export * from './fetcher'
 
 export * from './subgraphs'
+
