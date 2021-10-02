@@ -21,6 +21,7 @@ export {
   MINIMUM_LIQUIDITY,
   UNITROLLER_ADDRESS,
   JAVAX_ADDRESS,
+  JOELENS_ADDRESS,
   JOELENSVIEW_ADDRESS,
   REWARDDISTRIBUTOR_ADDRESS
 } from './constants'
@@ -31,4 +32,3 @@ export * from './router'
 export * from './fetcher'
 
 export * from './subgraphs'
-
