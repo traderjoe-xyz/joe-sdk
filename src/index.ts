@@ -22,7 +22,8 @@ export {
   UNITROLLER_ADDRESS,
   JAVAX_ADDRESS,
   JOELENS_ADDRESS,
-  JOELENSVIEW_ADDRESS
+  JOELENSVIEW_ADDRESS,
+  MAXIMILLION_ADDRESS
 } from './constants'
 
 export * from './errors'
