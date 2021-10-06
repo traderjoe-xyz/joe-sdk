@@ -31,3 +31,9 @@ export const BAR_SUBGRAPH: {[chainId in ChainId]: string } = {
     [ChainId.FUJI]: ZERO_ADDRESS,
     [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/bar'
 }
+
+export const LENDING_SUBGRAPH: {[chainId in ChainId]: string } = {
+    [ChainId.RINKEBY]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/lending-rinkeby', 
+    [ChainId.FUJI]: ZERO_ADDRESS,
+    [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/lending-rinkeby'
+}
