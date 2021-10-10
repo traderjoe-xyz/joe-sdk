@@ -145,5 +145,5 @@ export const JAVAX_ADDRESS: { [chainId in ChainId]: string } = {
 export const MAXIMILLION_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.RINKEBY]: '0xC48B0159d3e7F240ac76cc3Ce39dF62fCd4656b0',
   [ChainId.FUJI]: '0x0000000000000000000000000000000000000000',
-  [ChainId.AVALANCHE]: '0xaEeE314A3b0D88439B77fCA9F125Bbb66BaAf61c'
+  [ChainId.AVALANCHE]: '0xe5cDdAFd0f7Af3DEAf4bd213bBaee7A5927AB7E7'
 }
