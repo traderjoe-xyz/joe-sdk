@@ -127,7 +127,7 @@ export const UNITROLLER_ADDRESS: { [chainId in ChainId]: string } = {
 export const JOELENS_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.RINKEBY]: '0x4F101798dd4AF8A2A8325F4C54C195a61C59Dc62',
   [ChainId.FUJI]: '0x0000000000000000000000000000000000000000',
-  [ChainId.AVALANCHE]: '0x997fbA28c75747417571c5F3fe50015AaC2BB073'
+  [ChainId.AVALANCHE]: '0xFDF50FEa3527FaD31Fa840B748FD3694aE8a47cc'
 }
 
 export const JOELENSVIEW_ADDRESS: { [chainId in ChainId]: string } = {
