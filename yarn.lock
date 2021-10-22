@@ -1723,10 +1723,10 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@traderjoe-xyz/core@^0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@traderjoe-xyz/core/-/core-0.9.0.tgz#5c415a11c9ca651cbc97dcde6a684d9bfd0a447b"
-  integrity sha512-ZthGYgp9s8keD7os6F8+ly1pR85iEM4xDBZjYkkhpGa/uzcgLqt+sfm3vfZ3o2mPanxhRd4OcZ2LI88meMu1og==
+"@traderjoe-xyz/core@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@traderjoe-xyz/core/-/core-2.0.0.tgz#bd4264bfbd7a4f926ea09278e06e80a0ccbcb2b0"
+  integrity sha512-XTQ7DTBr67sYwrkrBx5CspHuaZqFgjQkKw4t9XgV+S3Opjc17YPkkDgTA7YvGb6ngZWQFhy34rZTsVJGK3O+nw==
 
 "@truffle/error@^0.0.6":
   version "0.0.6"
