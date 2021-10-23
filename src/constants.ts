@@ -30,7 +30,7 @@ export const FACTORY_ADDRESS: { [chainId in ChainId]: string } = {
 }
 
 export const JOE_ADDRESS: { [chainId in ChainId]: string } = {
-  [ChainId.RINKEBY]: '0x23fc76B53882d8dcaB1900f0D3C1C0c504Ffb8E3',
+  [ChainId.RINKEBY]: '0xce347E069B68C53A9ED5e7DA5952529cAF8ACCd4',
   [ChainId.FUJI]: '0xcee9d937E3627E55F08240072D63f32c3a60fF2D',
   [ChainId.AVALANCHE]: '0x6e84a6216eA6dACC71eE8E6b0a5B7322EEbC0fDd'
 }
