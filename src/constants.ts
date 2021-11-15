@@ -149,9 +149,9 @@ export const JOELENSVIEW_ADDRESS: { [chainId in ChainId]: string } = {
 }
 
 export const FARMLENS_ADDRESS: { [chainId in ChainId]: string } = {
-  [ChainId.RINKEBY]: '0x0000000000000000000000000000000000000000',
+  [ChainId.RINKEBY]: '0x7984D02320aA22e6A3cDAc3Af14E7f1820ac7aAa',
   [ChainId.FUJI]: '0x0000000000000000000000000000000000000000',
-  [ChainId.AVALANCHE]: '0xC2391C7A00CbcC04BC362ab609A66ba4A7d6F5d8'
+  [ChainId.AVALANCHE]: '0xc1b83cE1573984Dcf4115e983F9c28748a0F350E'
 }
 
 export const JAVAX_ADDRESS: { [chainId in ChainId]: string } = {
