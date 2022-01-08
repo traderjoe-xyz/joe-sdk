@@ -27,6 +27,7 @@ export {
   JOELENSVIEW_ADDRESS,
   FARMLENS_ADDRESS,
   MAXIMILLION_ADDRESS,
+  LOCKING_WRAPPER_ADDRESS
 } from './constants'
 
 export * from './errors'
