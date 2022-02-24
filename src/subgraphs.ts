@@ -43,3 +43,15 @@ export const ROCKET_SUBGRAPH: {[chainId in ChainId]: string } = {
     [ChainId.FUJI]: ZERO_ADDRESS,
     [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/rocket'
 }
+
+export const SJOE_SUBGRAPH: {[chainId in ChainId]: string } = {
+    [ChainId.RINKEBY]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/sjoe-rinkeby', 
+    [ChainId.FUJI]: ZERO_ADDRESS,
+    [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/sjoe'
+}
+
+export const MONEY_MAKER_SUBGRAPH: {[chainId in ChainId]: string } = {
+    [ChainId.RINKEBY]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/money-maker-rinkeby', 
+    [ChainId.FUJI]: ZERO_ADDRESS,
+    [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/money-maker'
+}
