@@ -51,7 +51,7 @@ export const SJOE_SUBGRAPH: {[chainId in ChainId]: string } = {
 }
 
 export const MONEY_MAKER_SUBGRAPH: {[chainId in ChainId]: string } = {
-    [ChainId.RINKEBY]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/money-maker-rinkeby', 
+    [ChainId.RINKEBY]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/moneymaker-rinkeby', 
     [ChainId.FUJI]: ZERO_ADDRESS,
     [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/money-maker'
 }
