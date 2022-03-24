@@ -120,9 +120,9 @@ export const FARMLENS_ADDRESS: { [chainId in ChainId]: string } = {
 }
 
 export const FARMLENSV2_ADDRESS: { [chainId in ChainId]: string } = {
-  [ChainId.RINKEBY]: '0x7b296549E4407485F1E8b20aEb0213D88513B187',
+  [ChainId.RINKEBY]: '0x8A6FA314799b5E5553Cbce7fab3d9EAdEf5ee85a',
   [ChainId.FUJI]: '0x0000000000000000000000000000000000000000',
-  [ChainId.AVALANCHE]: '0xBd483b62612a859C5E66f8B7CFb6587fD7657B88'
+  [ChainId.AVALANCHE]: '0x7F28105B23B32d073eD78A072f3b2e3904f5c4ea'
 }
 
 export const ROCKET_JOE_TOKEN_ADDRESS: { [chainId in ChainId]: string } = {
