@@ -55,3 +55,15 @@ export const MONEY_MAKER_SUBGRAPH: {[chainId in ChainId]: string } = {
     [ChainId.FUJI]: ZERO_ADDRESS,
     [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/money-maker'
 }
+
+export const VEJOE_SUBGRAPH: {[chainId in ChainId]: string } = {
+    [ChainId.RINKEBY]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/vejoe-rinkeby', 
+    [ChainId.FUJI]: ZERO_ADDRESS,
+    [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/vejoe'
+}
+
+export const BOOSTED_MASTERCHEF_SUBGRAPH: {[chainId in ChainId]: string } = {
+    [ChainId.RINKEBY]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/boosted-master-chef-rinkeby', 
+    [ChainId.FUJI]: ZERO_ADDRESS,
+    [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/boosted-master-chef'
+}
