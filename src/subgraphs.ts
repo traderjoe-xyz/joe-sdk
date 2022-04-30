@@ -67,3 +67,15 @@ export const BOOSTED_MASTERCHEF_SUBGRAPH: {[chainId in ChainId]: string } = {
     [ChainId.FUJI]: ZERO_ADDRESS,
     [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/boosted-master-chef'
 }
+
+export const NFT_CONTRACTS_SUBGRAPH: {[chainId in ChainId]: string } = {
+    [ChainId.RINKEBY]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/nft-contracts-rinkeby', 
+    [ChainId.FUJI]: ZERO_ADDRESS,
+    [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/nft-contracts'
+}
+
+export const JOEPEG_MARKETPLACE_SUBGRAPH: {[chainId in ChainId]: string } = {
+    [ChainId.RINKEBY]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/marketplace-rinkeby', 
+    [ChainId.FUJI]: ZERO_ADDRESS,
+    [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/marketplace'
+}
