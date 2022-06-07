@@ -1,8 +1,8 @@
 import { ChainId, Token, Pair, TokenAmount, WAVAX, Price } from '../src'
 
 describe('Pair', () => {
-  const USDT = new Token(ChainId.FUJI, '0x3763fb99d772d1d96571f39508e34489f400750c', 6, 'USDT', 'USDT Token')
-  const JOE = new Token(ChainId.FUJI, '0x477fd10db0d80eafb773cf623b258313c3739413', 18, 'JOE', 'JOE Token')
+  const USDT = new Token(ChainId.FUJI, '0x3763fB99d772D1D96571F39508e34489F400750c', 6, 'USDT', 'USDT Token')
+  const JOE = new Token(ChainId.FUJI, '0x477Fd10Db0D80eAFb773cF623B258313C3739413', 18, 'JOE', 'JOE Token')
 
   describe('constructor', () => {
     it('cannot be used for tokens on different chains', () => {
