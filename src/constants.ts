@@ -289,3 +289,8 @@ export const AUCTION_HOUSE: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: '0x768Ba583BC928C6a691FAaD7E924c94E6E6F4F98',
   [ChainId.AVALANCHE]: '0x341C84811477b16AB7eAE4F07980547E4Df42559'
 }
+
+export const BATCH_TRANSFER_NFT: { [chainId in ChainId]: string } = {
+  [ChainId.FUJI]: '0x497f6d5a33f03cdc26edafea19e5e3b7e5cf76e8',
+  [ChainId.AVALANCHE]: '0x42Ac9B9CA43b2C36Ac1E78eA3bc71905f55a589a'
+}
