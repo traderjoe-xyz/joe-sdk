@@ -53,7 +53,8 @@ export {
   ERC721_TOKEN_ADDRESS,
   LAUNCHPEG_FACTORY_ADDRESS,
   LAUNCHPEG_LENS_ADDRESS,
-  AUCTION_HOUSE
+  AUCTION_HOUSE,
+  BATCH_TRANSFER_NFT
 } from './constants'
 
 export * from './errors'
