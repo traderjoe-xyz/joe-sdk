@@ -286,8 +286,8 @@ export const LAUNCHPEG_FACTORY_ADDRESS: { [chainId in ChainId]: string } = {
 }
 
 export const LAUNCHPEG_LENS_ADDRESS: { [chainId in ChainId]: string } = {
-  [ChainId.FUJI]: '0x674ABC8D4aaCba9cE74E0304c831B10e7Fe4D646',
-  [ChainId.AVALANCHE]: '0x7f281f22eDB332807A039073a7F34A4A215bE89e'
+  [ChainId.FUJI]: '0x9534125d1358c8e174546Ec3ef7D98FAce54F0DA',
+  [ChainId.AVALANCHE]: '0xe4C3aCD3A718f99088BcbcAcb45C2924Cfe66eb8'
 }
 
 export const AUCTION_HOUSE: { [chainId in ChainId]: string } = {
