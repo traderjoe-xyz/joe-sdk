@@ -1,68 +1,92 @@
 import { ChainId } from './constants'
 
-const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
-
 export const BLOCKS_SUBGRAPH: { [chainId in ChainId]: string } = {
-  [ChainId.FUJI]: ZERO_ADDRESS,
-  [ChainId.AVALANCHE]: 'https://thegraph.com/explorer/subgraph/dasconnor/avalanche-blocks'
+  [ChainId.FUJI]: '',
+  [ChainId.AVALANCHE]: 'https://thegraph.com/explorer/subgraph/dasconnor/avalanche-blocks',
+  [ChainId.ARBITRUM_ONE]: '',
+  [ChainId.ARB_GOERLI]: ''
 }
 
 export const EXCHANGE_SUBGRAPH: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/exchange-fuji',
-  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/exchange'
+  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/exchange',
+  [ChainId.ARBITRUM_ONE]: '',
+  [ChainId.ARB_GOERLI]: ''
 }
 
 export const MASTERCHEF_SUBGRAPH: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/masterchefv2-fuji',
-  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/masterchefv2'
+  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/masterchefv2',
+  [ChainId.ARBITRUM_ONE]: '',
+  [ChainId.ARB_GOERLI]: ''
 }
 
 export const DEXCANDLES_SUBGRAPH: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/dexcandles-fuji',
-  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/dexcandles'
+  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/dexcandles',
+  [ChainId.ARBITRUM_ONE]: '',
+  [ChainId.ARB_GOERLI]: ''
 }
 
 export const BAR_SUBGRAPH: { [chainId in ChainId]: string } = {
-  [ChainId.FUJI]: ZERO_ADDRESS,
-  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/bar'
+  [ChainId.FUJI]: '',
+  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/bar',
+  [ChainId.ARBITRUM_ONE]: '',
+  [ChainId.ARB_GOERLI]: ''
 }
 
 export const LENDING_SUBGRAPH: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/lending-fuji',
-  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/lending'
+  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/lending',
+  [ChainId.ARBITRUM_ONE]: '',
+  [ChainId.ARB_GOERLI]: ''
 }
 
 export const ROCKET_SUBGRAPH: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/rocket-fuji',
-  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/rocket'
+  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/rocket',
+  [ChainId.ARBITRUM_ONE]: '',
+  [ChainId.ARB_GOERLI]: ''
 }
 
 export const SJOE_SUBGRAPH: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/sjoe-fuji',
-  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/sjoe'
+  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/sjoe',
+  [ChainId.ARBITRUM_ONE]: '',
+  [ChainId.ARB_GOERLI]: ''
 }
 
 export const MONEY_MAKER_SUBGRAPH: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/moneymaker-fuji',
-  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/money-maker'
+  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/money-maker',
+  [ChainId.ARBITRUM_ONE]: '',
+  [ChainId.ARB_GOERLI]: ''
 }
 
 export const VEJOE_SUBGRAPH: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/vejoe-fuji',
-  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/vejoe'
+  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/vejoe',
+  [ChainId.ARBITRUM_ONE]: '',
+  [ChainId.ARB_GOERLI]: ''
 }
 
 export const BOOSTED_MASTERCHEF_SUBGRAPH: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/boostedmasterchef-fuji',
-  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/boosted-master-chef'
+  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/boosted-master-chef',
+  [ChainId.ARBITRUM_ONE]: '',
+  [ChainId.ARB_GOERLI]: ''
 }
 
 export const NFT_CONTRACTS_SUBGRAPH: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/nft-contract-fuji',
-  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/nft-contracts'
+  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/nft-contracts',
+  [ChainId.ARBITRUM_ONE]: '',
+  [ChainId.ARB_GOERLI]: ''
 }
 
 export const JOEPEG_MARKETPLACE_SUBGRAPH: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/marketplace-fuji',
-  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/marketplace'
+  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/marketplace',
+  [ChainId.ARBITRUM_ONE]: '',
+  [ChainId.ARB_GOERLI]: ''
 }

@@ -56,7 +56,29 @@ export function currencyEquals(currencyA: Currency, currencyB: Currency): boolea
   }
 }
 
-export const WAVAX = {
-  [ChainId.FUJI]: new Token(ChainId.FUJI,'0xd00ae08403B9bbb9124bB305C09058E32C39A48c',18,'WAVAX','Wrapped AVAX'),
-  [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE,'0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7',18,'WAVAX','Wrapped AVAX')
+export const WNATIVE = {
+  [ChainId.FUJI]: new Token(ChainId.FUJI, '0xd00ae08403B9bbb9124bB305C09058E32C39A48c', 18, 'WAVAX', 'Wrapped AVAX'),
+  [ChainId.AVALANCHE]: new Token(
+    ChainId.AVALANCHE,
+    '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7',
+    18,
+    'WAVAX',
+    'Wrapped AVAX'
+  ),
+  [ChainId.ARBITRUM_ONE]: new Token(
+    ChainId.ARBITRUM_ONE,
+    '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1',
+    18,
+    'WETH',
+    'Wrapped ETH'
+  ),
+  [ChainId.ARB_GOERLI]: new Token(
+    ChainId.ARB_GOERLI,
+    '0x0258c48dD2Fd053f9031FCab136C63213cA839C8',
+    18,
+    'WETH',
+    'Wrapped ETH'
+  )
 }
+
+export const WAVAX = WNATIVE
