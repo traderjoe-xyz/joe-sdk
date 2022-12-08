@@ -1,17 +1,10 @@
 import { ChainId } from './constants'
 
-export const BLOCKS_SUBGRAPH: { [chainId in ChainId]: string } = {
-  [ChainId.FUJI]: '',
-  [ChainId.AVALANCHE]: 'https://thegraph.com/explorer/subgraph/dasconnor/avalanche-blocks',
-  [ChainId.ARBITRUM_ONE]: '',
-  [ChainId.ARB_GOERLI]: ''
-}
-
 export const EXCHANGE_SUBGRAPH: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/exchange-fuji',
   [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/exchange',
   [ChainId.ARBITRUM_ONE]: '',
-  [ChainId.ARB_GOERLI]: ''
+  [ChainId.ARB_GOERLI]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/joe-v1-arb-goerli'
 }
 
 export const MASTERCHEF_SUBGRAPH: { [chainId in ChainId]: string } = {
