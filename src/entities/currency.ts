@@ -1,37 +1,59 @@
 import JSBI from 'jsbi'
-
+import { Token } from './token'
 import { SolidityType } from '../constants'
 import { validateSolidityTypeInstance } from '../utils'
 
 /**
- * A currency is any fungible financial instrument on Ethereum, including Ether and all ERC20 tokens.
- *
- * The only instance of the base class `Currency` is Ether.
+ * Represents the native currency of the chain on which it resides, e.g. ETH, AVAX
  */
-export class Currency {
+export class NativeCurrency {
   public readonly decimals: number
   public readonly symbol?: string
   public readonly name?: string
+  public readonly isNative: true = true
+  public readonly isToken: false = false
+  public readonly chainId: number
 
   /**
-   * The only instance of the base class `Currency`.
-   */
-  public static readonly CAVAX: Currency = new Currency(18, 'AVAX', 'Avalanche')
-
-  /**
-   * Constructs an instance of the base class `Currency`. The only instance of the base class `Currency` is `Currency.ETHER`.
+   * Constructs an instance of the base class `NativeCurrency`.
+   * @param chainId the chain ID on which this currency resides
    * @param decimals decimals of the currency
    * @param symbol symbol of the currency
    * @param name of the currency
    */
-  protected constructor(decimals: number, symbol?: string, name?: string) {
+  constructor(chainId: number, decimals: number, symbol?: string, name?: string) {
     validateSolidityTypeInstance(JSBI.BigInt(decimals), SolidityType.uint8)
-
+    this.chainId = chainId
     this.decimals = decimals
     this.symbol = symbol
     this.name = name
   }
+
+  public equals(other: NativeCurrency): boolean {
+    return other.isNative && other.chainId === this.chainId
+  }
 }
 
-const CAVAX = Currency.CAVAX
-export { CAVAX }
+/*
+ * CNATIVE is the main usage of a 'native' currency, i.e. ETH, AVAX, BNB
+ */
+export class CNATIVE extends NativeCurrency {
+  constructor(chainId: number) {
+    const symbol = chainId in [43113, 43114] ? 'AVAX' : chainId in [56, 97] ? 'BNB' : 'ETH'
+    const name = chainId in [43113, 43114] ? 'Avalanche' : chainId in [56, 97] ? 'BNB' : 'Ethereum'
+    super(chainId, 18, symbol, name)
+  }
+  public equals(other: NativeCurrency): boolean {
+    return other.isNative && other.chainId === this.chainId
+  }
+
+  private static _etherCache: { [chainId: number]: CNATIVE } = {}
+
+  public static onChain(chainId: number): CNATIVE {
+    return this._etherCache[chainId] ?? (this._etherCache[chainId] = new CNATIVE(chainId))
+  }
+}
+/**
+ * A currency is any fungible financial instrument, including Ether, all ERC20 tokens, and other chain-native currencies
+ */
+export type Currency = NativeCurrency | Token

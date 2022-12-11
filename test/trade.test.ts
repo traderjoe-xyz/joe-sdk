@@ -1,7 +1,7 @@
 import JSBI from 'jsbi'
 import {
   ChainId,
-  CAVAX,
+  CNATIVE,
   CurrencyAmount,
   Pair,
   Percent,
@@ -21,59 +21,84 @@ describe('Trade', () => {
   const token2 = new Token(CHAIN_ID, '0x0000000000000000000000000000000000000003', 18, 't2')
   const token3 = new Token(CHAIN_ID, '0x0000000000000000000000000000000000000004', 18, 't3')
 
-  const pair_0_1 = new Pair(new TokenAmount(token0, JSBI.BigInt(1000)), new TokenAmount(token1, JSBI.BigInt(1000)), CHAIN_ID)
-  const pair_0_2 = new Pair(new TokenAmount(token0, JSBI.BigInt(1000)), new TokenAmount(token2, JSBI.BigInt(1100)), CHAIN_ID)
-  const pair_0_3 = new Pair(new TokenAmount(token0, JSBI.BigInt(1000)), new TokenAmount(token3, JSBI.BigInt(900)), CHAIN_ID)
-  const pair_1_2 = new Pair(new TokenAmount(token1, JSBI.BigInt(1200)), new TokenAmount(token2, JSBI.BigInt(1000)), CHAIN_ID)
-  const pair_1_3 = new Pair(new TokenAmount(token1, JSBI.BigInt(1200)), new TokenAmount(token3, JSBI.BigInt(1300)), CHAIN_ID)
+  const pair_0_1 = new Pair(
+    new TokenAmount(token0, JSBI.BigInt(1000)),
+    new TokenAmount(token1, JSBI.BigInt(1000)),
+    CHAIN_ID
+  )
+  const pair_0_2 = new Pair(
+    new TokenAmount(token0, JSBI.BigInt(1000)),
+    new TokenAmount(token2, JSBI.BigInt(1100)),
+    CHAIN_ID
+  )
+  const pair_0_3 = new Pair(
+    new TokenAmount(token0, JSBI.BigInt(1000)),
+    new TokenAmount(token3, JSBI.BigInt(900)),
+    CHAIN_ID
+  )
+  const pair_1_2 = new Pair(
+    new TokenAmount(token1, JSBI.BigInt(1200)),
+    new TokenAmount(token2, JSBI.BigInt(1000)),
+    CHAIN_ID
+  )
+  const pair_1_3 = new Pair(
+    new TokenAmount(token1, JSBI.BigInt(1200)),
+    new TokenAmount(token3, JSBI.BigInt(1300)),
+    CHAIN_ID
+  )
 
   const pair_weth_0 = new Pair(
     new TokenAmount(WAVAX[CHAIN_ID], JSBI.BigInt(1000)),
-    new TokenAmount(token0, JSBI.BigInt(1000)), CHAIN_ID
+    new TokenAmount(token0, JSBI.BigInt(1000)),
+    CHAIN_ID
   )
 
-  const empty_pair_0_1 = new Pair(new TokenAmount(token0, JSBI.BigInt(0)), new TokenAmount(token1, JSBI.BigInt(0)), CHAIN_ID)
+  const empty_pair_0_1 = new Pair(
+    new TokenAmount(token0, JSBI.BigInt(0)),
+    new TokenAmount(token1, JSBI.BigInt(0)),
+    CHAIN_ID
+  )
 
   it('can be constructed with ETHER as input', () => {
     const trade = new Trade(
-      new Route([pair_weth_0], CAVAX),
-      CurrencyAmount.ether(JSBI.BigInt(100)),
+      new Route([pair_weth_0], CNATIVE.onChain(CHAIN_ID)),
+      CurrencyAmount.ether(CHAIN_ID, JSBI.BigInt(100)),
       TradeType.EXACT_INPUT,
       CHAIN_ID
     )
-    expect(trade.inputAmount.currency).toEqual(CAVAX)
+    expect(trade.inputAmount.currency).toEqual(CNATIVE.onChain(CHAIN_ID))
     expect(trade.outputAmount.currency).toEqual(token0)
   })
   it('can be constructed with ETHER as input for exact output', () => {
     const trade = new Trade(
-      new Route([pair_weth_0], CAVAX, token0),
+      new Route([pair_weth_0], CNATIVE.onChain(CHAIN_ID), token0),
       new TokenAmount(token0, JSBI.BigInt(100)),
       TradeType.EXACT_OUTPUT,
       CHAIN_ID
     )
-    expect(trade.inputAmount.currency).toEqual(CAVAX)
+    expect(trade.inputAmount.currency).toEqual(CNATIVE.onChain(CHAIN_ID))
     expect(trade.outputAmount.currency).toEqual(token0)
   })
 
   it('can be constructed with ETHER as output', () => {
     const trade = new Trade(
-      new Route([pair_weth_0], token0, CAVAX),
-      CurrencyAmount.ether(JSBI.BigInt(100)),
+      new Route([pair_weth_0], token0, CNATIVE.onChain(CHAIN_ID)),
+      CurrencyAmount.ether(CHAIN_ID, JSBI.BigInt(100)),
       TradeType.EXACT_OUTPUT,
       CHAIN_ID
     )
     expect(trade.inputAmount.currency).toEqual(token0)
-    expect(trade.outputAmount.currency).toEqual(CAVAX)
+    expect(trade.outputAmount.currency).toEqual(CNATIVE.onChain(CHAIN_ID))
   })
   it('can be constructed with ETHER as output for exact input', () => {
     const trade = new Trade(
-      new Route([pair_weth_0], token0, CAVAX),
+      new Route([pair_weth_0], token0, CNATIVE.onChain(CHAIN_ID)),
       new TokenAmount(token0, JSBI.BigInt(100)),
       TradeType.EXACT_INPUT,
       CHAIN_ID
     )
     expect(trade.inputAmount.currency).toEqual(token0)
-    expect(trade.outputAmount.currency).toEqual(CAVAX)
+    expect(trade.outputAmount.currency).toEqual(CNATIVE.onChain(CHAIN_ID))
   })
 
   describe('#bestTradeExactIn', () => {
@@ -156,14 +181,14 @@ describe('Trade', () => {
     it('works for ETHER currency input', () => {
       const result = Trade.bestTradeExactIn(
         [pair_weth_0, pair_0_1, pair_0_3, pair_1_3],
-        CurrencyAmount.ether(JSBI.BigInt(100)),
+        CurrencyAmount.ether(CHAIN_ID, JSBI.BigInt(100)),
         token3
       )
       expect(result).toHaveLength(2)
-      expect(result[0].inputAmount.currency).toEqual(CAVAX)
+      expect(result[0].inputAmount.currency).toEqual(CNATIVE.onChain(CHAIN_ID))
       expect(result[0].route.path).toEqual([WAVAX[CHAIN_ID], token0, token1, token3])
       expect(result[0].outputAmount.currency).toEqual(token3)
-      expect(result[1].inputAmount.currency).toEqual(CAVAX)
+      expect(result[1].inputAmount.currency).toEqual(CNATIVE.onChain(CHAIN_ID))
       expect(result[1].route.path).toEqual([WAVAX[CHAIN_ID], token0, token3])
       expect(result[1].outputAmount.currency).toEqual(token3)
     })
@@ -171,15 +196,15 @@ describe('Trade', () => {
       const result = Trade.bestTradeExactIn(
         [pair_weth_0, pair_0_1, pair_0_3, pair_1_3],
         new TokenAmount(token3, JSBI.BigInt(100)),
-        CAVAX
+        CNATIVE.onChain(CHAIN_ID)
       )
       expect(result).toHaveLength(2)
       expect(result[0].inputAmount.currency).toEqual(token3)
       expect(result[0].route.path).toEqual([token3, token0, WAVAX[CHAIN_ID]])
-      expect(result[0].outputAmount.currency).toEqual(CAVAX)
+      expect(result[0].outputAmount.currency).toEqual(CNATIVE.onChain(CHAIN_ID))
       expect(result[1].inputAmount.currency).toEqual(token3)
       expect(result[1].route.path).toEqual([token3, token1, token0, WAVAX[CHAIN_ID]])
-      expect(result[1].outputAmount.currency).toEqual(CAVAX)
+      expect(result[1].outputAmount.currency).toEqual(CNATIVE.onChain(CHAIN_ID))
     })
   })
 
@@ -385,14 +410,14 @@ describe('Trade', () => {
     it('works for ETHER currency input', () => {
       const result = Trade.bestTradeExactOut(
         [pair_weth_0, pair_0_1, pair_0_3, pair_1_3],
-        CAVAX,
+        CNATIVE.onChain(CHAIN_ID),
         new TokenAmount(token3, JSBI.BigInt(100))
       )
       expect(result).toHaveLength(2)
-      expect(result[0].inputAmount.currency).toEqual(CAVAX)
+      expect(result[0].inputAmount.currency).toEqual(CNATIVE.onChain(CHAIN_ID))
       expect(result[0].route.path).toEqual([WAVAX[CHAIN_ID], token0, token1, token3])
       expect(result[0].outputAmount.currency).toEqual(token3)
-      expect(result[1].inputAmount.currency).toEqual(CAVAX)
+      expect(result[1].inputAmount.currency).toEqual(CNATIVE.onChain(CHAIN_ID))
       expect(result[1].route.path).toEqual([WAVAX[CHAIN_ID], token0, token3])
       expect(result[1].outputAmount.currency).toEqual(token3)
     })
@@ -400,15 +425,15 @@ describe('Trade', () => {
       const result = Trade.bestTradeExactOut(
         [pair_weth_0, pair_0_1, pair_0_3, pair_1_3],
         token3,
-        CurrencyAmount.ether(JSBI.BigInt(100))
+        CurrencyAmount.ether(CHAIN_ID, JSBI.BigInt(100))
       )
       expect(result).toHaveLength(2)
       expect(result[0].inputAmount.currency).toEqual(token3)
       expect(result[0].route.path).toEqual([token3, token0, WAVAX[CHAIN_ID]])
-      expect(result[0].outputAmount.currency).toEqual(CAVAX)
+      expect(result[0].outputAmount.currency).toEqual(CNATIVE.onChain(CHAIN_ID))
       expect(result[1].inputAmount.currency).toEqual(token3)
       expect(result[1].route.path).toEqual([token3, token1, token0, WAVAX[CHAIN_ID]])
-      expect(result[1].outputAmount.currency).toEqual(CAVAX)
+      expect(result[1].outputAmount.currency).toEqual(CNATIVE.onChain(CHAIN_ID))
     })
   })
 })

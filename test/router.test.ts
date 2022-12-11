@@ -1,5 +1,17 @@
 import invariant from 'tiny-invariant'
-import { ChainId, CurrencyAmount, CAVAX, Pair, Percent, Route, Router, Token, TokenAmount, Trade, WAVAX } from '../src'
+import {
+  ChainId,
+  CurrencyAmount,
+  Pair,
+  Percent,
+  Route,
+  Router,
+  Token,
+  TokenAmount,
+  Trade,
+  WAVAX,
+  CNATIVE
+} from '../src'
 import JSBI from 'jsbi'
 
 const CHAIN_ID = ChainId.FUJI
@@ -14,7 +26,11 @@ describe('Router', () => {
   const token0 = new Token(CHAIN_ID, '0x0000000000000000000000000000000000000001', 18, 't0')
   const token1 = new Token(CHAIN_ID, '0x0000000000000000000000000000000000000002', 18, 't1')
 
-  const pair_0_1 = new Pair(new TokenAmount(token0, JSBI.BigInt(1000)), new TokenAmount(token1, JSBI.BigInt(1000)), CHAIN_ID)
+  const pair_0_1 = new Pair(
+    new TokenAmount(token0, JSBI.BigInt(1000)),
+    new TokenAmount(token1, JSBI.BigInt(1000)),
+    CHAIN_ID
+  )
 
   const pair_weth_0 = new Pair(new TokenAmount(WAVAX[CHAIN_ID], '1000'), new TokenAmount(token0, '1000'), CHAIN_ID)
 
@@ -22,7 +38,11 @@ describe('Router', () => {
     describe('exact in', () => {
       it('ether to token1', () => {
         const result = Router.swapCallParameters(
-          Trade.exactIn(new Route([pair_weth_0, pair_0_1], CAVAX, token1), CurrencyAmount.ether(JSBI.BigInt(100)), CHAIN_ID),
+          Trade.exactIn(
+            new Route([pair_weth_0, pair_0_1], CNATIVE.onChain(CHAIN_ID), token1),
+            CurrencyAmount.ether(CHAIN_ID, JSBI.BigInt(100)),
+            CHAIN_ID
+          ),
           { ttl: 50, recipient: '0x0000000000000000000000000000000000000004', allowedSlippage: new Percent('1', '100') }
         )
         expect(result.methodName).toEqual('swapExactAVAXForTokens')
@@ -37,7 +57,11 @@ describe('Router', () => {
 
       it('deadline specified', () => {
         const result = Router.swapCallParameters(
-          Trade.exactIn(new Route([pair_weth_0, pair_0_1], CAVAX, token1), CurrencyAmount.ether(JSBI.BigInt(100)), CHAIN_ID),
+          Trade.exactIn(
+            new Route([pair_weth_0, pair_0_1], CNATIVE.onChain(CHAIN_ID), token1),
+            CurrencyAmount.ether(CHAIN_ID, JSBI.BigInt(100)),
+            CHAIN_ID
+          ),
           {
             deadline: 50,
             recipient: '0x0000000000000000000000000000000000000004',
@@ -56,7 +80,11 @@ describe('Router', () => {
 
       it('token1 to ether', () => {
         const result = Router.swapCallParameters(
-          Trade.exactIn(new Route([pair_0_1, pair_weth_0], token1, CAVAX), new TokenAmount(token1, JSBI.BigInt(100)), CHAIN_ID),
+          Trade.exactIn(
+            new Route([pair_0_1, pair_weth_0], token1, CNATIVE.onChain(CHAIN_ID)),
+            new TokenAmount(token1, JSBI.BigInt(100)),
+            CHAIN_ID
+          ),
           { ttl: 50, recipient: '0x0000000000000000000000000000000000000004', allowedSlippage: new Percent('1', '100') }
         )
         expect(result.methodName).toEqual('swapExactTokensForAVAX')
@@ -88,7 +116,11 @@ describe('Router', () => {
     describe('exact out', () => {
       it('ether to token1', () => {
         const result = Router.swapCallParameters(
-          Trade.exactOut(new Route([pair_weth_0, pair_0_1], CAVAX, token1), new TokenAmount(token1, JSBI.BigInt(100)), CHAIN_ID),
+          Trade.exactOut(
+            new Route([pair_weth_0, pair_0_1], CNATIVE.onChain(CHAIN_ID), token1),
+            new TokenAmount(token1, JSBI.BigInt(100)),
+            CHAIN_ID
+          ),
           { ttl: 50, recipient: '0x0000000000000000000000000000000000000004', allowedSlippage: new Percent('1', '100') }
         )
         expect(result.methodName).toEqual('swapAVAXForExactTokens')
@@ -102,7 +134,11 @@ describe('Router', () => {
       })
       it('token1 to ether', () => {
         const result = Router.swapCallParameters(
-          Trade.exactOut(new Route([pair_0_1, pair_weth_0], token1, CAVAX), CurrencyAmount.ether(JSBI.BigInt(100)), CHAIN_ID),
+          Trade.exactOut(
+            new Route([pair_0_1, pair_weth_0], token1, CNATIVE.onChain(CHAIN_ID)),
+            CurrencyAmount.ether(CHAIN_ID, JSBI.BigInt(100)),
+            CHAIN_ID
+          ),
           { ttl: 50, recipient: '0x0000000000000000000000000000000000000004', allowedSlippage: new Percent('1', '100') }
         )
         expect(result.methodName).toEqual('swapTokensForExactAVAX')
@@ -135,7 +171,11 @@ describe('Router', () => {
       describe('exact in', () => {
         it('ether to token1', () => {
           const result = Router.swapCallParameters(
-            Trade.exactIn(new Route([pair_weth_0, pair_0_1], CAVAX, token1), CurrencyAmount.ether(JSBI.BigInt(100)), CHAIN_ID),
+            Trade.exactIn(
+              new Route([pair_weth_0, pair_0_1], CNATIVE.onChain(CHAIN_ID), token1),
+              CurrencyAmount.ether(CHAIN_ID, JSBI.BigInt(100)),
+              CHAIN_ID
+            ),
             {
               ttl: 50,
               recipient: '0x0000000000000000000000000000000000000004',
@@ -154,7 +194,11 @@ describe('Router', () => {
         })
         it('token1 to ether', () => {
           const result = Router.swapCallParameters(
-            Trade.exactIn(new Route([pair_0_1, pair_weth_0], token1, CAVAX), new TokenAmount(token1, JSBI.BigInt(100)), CHAIN_ID),
+            Trade.exactIn(
+              new Route([pair_0_1, pair_weth_0], token1, CNATIVE.onChain(CHAIN_ID)),
+              new TokenAmount(token1, JSBI.BigInt(100)),
+              CHAIN_ID
+            ),
             {
               ttl: 50,
               recipient: '0x0000000000000000000000000000000000000004',
@@ -198,7 +242,7 @@ describe('Router', () => {
           expect(() =>
             Router.swapCallParameters(
               Trade.exactOut(
-                new Route([pair_weth_0, pair_0_1], CAVAX, token1),
+                new Route([pair_weth_0, pair_0_1], CNATIVE.onChain(CHAIN_ID), token1),
                 new TokenAmount(token1, JSBI.BigInt(100)),
                 CHAIN_ID
               ),
@@ -214,7 +258,11 @@ describe('Router', () => {
         it('token1 to ether', () => {
           expect(() =>
             Router.swapCallParameters(
-              Trade.exactOut(new Route([pair_0_1, pair_weth_0], token1, CAVAX), CurrencyAmount.ether(JSBI.BigInt(100)), CHAIN_ID),
+              Trade.exactOut(
+                new Route([pair_0_1, pair_weth_0], token1, CNATIVE.onChain(CHAIN_ID)),
+                CurrencyAmount.ether(CHAIN_ID, JSBI.BigInt(100)),
+                CHAIN_ID
+              ),
               {
                 ttl: 50,
                 recipient: '0x0000000000000000000000000000000000000004',
@@ -227,7 +275,11 @@ describe('Router', () => {
         it('token0 to token1', () => {
           expect(() =>
             Router.swapCallParameters(
-              Trade.exactOut(new Route([pair_0_1], token0, token1), new TokenAmount(token1, JSBI.BigInt(100)), CHAIN_ID),
+              Trade.exactOut(
+                new Route([pair_0_1], token0, token1),
+                new TokenAmount(token1, JSBI.BigInt(100)),
+                CHAIN_ID
+              ),
               {
                 ttl: 50,
                 recipient: '0x0000000000000000000000000000000000000004',
