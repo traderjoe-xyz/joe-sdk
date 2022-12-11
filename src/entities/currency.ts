@@ -53,6 +53,14 @@ export class CNATIVE extends NativeCurrency {
     return this._etherCache[chainId] ?? (this._etherCache[chainId] = new CNATIVE(chainId))
   }
 }
+
+/**
+ * for backward compatibility
+ */
+const CAVAX = CNATIVE.onChain(43114)
+export { CAVAX }
+
+
 /**
  * A currency is any fungible financial instrument, including Ether, all ERC20 tokens, and other chain-native currencies
  */
