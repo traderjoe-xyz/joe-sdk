@@ -39,8 +39,8 @@ export class NativeCurrency {
  */
 export class CNATIVE extends NativeCurrency {
   constructor(chainId: number) {
-    const symbol = chainId in [43113, 43114] ? 'AVAX' : chainId in [56, 97] ? 'BNB' : 'ETH'
-    const name = chainId in [43113, 43114] ? 'Avalanche' : chainId in [56, 97] ? 'BNB' : 'Ethereum'
+    const symbol = [43113, 43114].includes(chainId) ? 'AVAX' : [56, 97].includes(chainId) ? 'BNB' : 'ETH'
+    const name = [43113, 43114].includes(chainId) ? 'Avalanche' : [56, 97].includes(chainId) ? 'BNB' : 'Ethereum'
     super(chainId, 18, symbol, name)
   }
   public equals(other: NativeCurrency): boolean {
@@ -59,7 +59,6 @@ export class CNATIVE extends NativeCurrency {
  */
 const CAVAX = CNATIVE.onChain(43114)
 export { CAVAX }
-
 
 /**
  * A currency is any fungible financial instrument, including Ether, all ERC20 tokens, and other chain-native currencies
