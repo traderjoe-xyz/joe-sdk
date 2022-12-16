@@ -85,7 +85,7 @@ export const WNATIVE = {
   ),
   [ChainId.ARB_GOERLI]: new Token(
     ChainId.ARB_GOERLI,
-    '0x0258c48dD2Fd053f9031FCab136C63213cA839C8',
+    '0xaE4EC9901c3076D0DdBe76A520F9E90a6227aCB7',
     18,
     'WETH',
     'Wrapped ETH'
