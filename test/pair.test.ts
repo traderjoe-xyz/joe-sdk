@@ -4,6 +4,9 @@ describe('Pair', () => {
   const USDT = new Token(ChainId.FUJI, '0x3763fB99d772D1D96571F39508e34489F400750c', 6, 'USDT', 'USDT Token')
   const JOE = new Token(ChainId.FUJI, '0x477Fd10Db0D80eAFb773cF623B258313C3739413', 18, 'JOE', 'JOE Token')
 
+  const gUSDT = new Token(ChainId.ARB_GOERLI, '0xf450749aeA1c5feF27Ae0237C56FecC43f6bE244', 6, 'USDT', 'Tether Token')
+  const gUSDC = new Token(ChainId.ARB_GOERLI, '0xb3482A25a12e5261b02E0acc5b96c656358a4086', 6, 'USDC', 'USD Coin')
+
   describe('constructor', () => {
     it('cannot be used for tokens on different chains', () => {
       expect(
@@ -15,6 +18,9 @@ describe('Pair', () => {
   describe('#getAddress', () => {
     it('returns the correct address', () => {
       expect(Pair.getAddress(USDT, JOE, ChainId.FUJI)).toEqual('0xd520cF33C013909AFc9Cf158D73F5460753B5ec4')
+    })
+    it('returns the correct address - arb goerlli', () => {
+      expect(Pair.getAddress(gUSDT, gUSDC, ChainId.ARB_GOERLI)).toEqual('0x682d5a31c8bdf110657d92f78467d196007749e3')
     })
   })
 
