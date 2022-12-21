@@ -3,7 +3,7 @@ import { ChainId } from './constants'
 export const EXCHANGE_SUBGRAPH: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/exchange-fuji',
   [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/exchange',
-  [ChainId.ARBITRUM_ONE]: '',
+  [ChainId.ARBITRUM_ONE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/joe-v1-arbitrum',
   [ChainId.ARB_GOERLI]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/joe-v1-arb-goerli'
 }
 

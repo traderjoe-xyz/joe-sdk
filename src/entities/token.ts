@@ -6,13 +6,24 @@ import { Currency } from './currency'
 /**
  * Represents an ERC20 token with a unique address and some metadata.
  */
-export class Token extends Currency {
-  public readonly chainId: ChainId
+export class Token {
+  public readonly decimals: number
+  public readonly symbol?: string
+  public readonly name?: string
+  public readonly isNative: false = false
+  public readonly isToken: true = true
+  public readonly chainId: number
+
+  /**
+   * The contract address on the chain on which this token lives
+   */
   public readonly address: string
 
   public constructor(chainId: ChainId, address: string, decimals: number, symbol?: string, name?: string) {
-    super(decimals, symbol, name)
     this.chainId = chainId
+    this.decimals = decimals
+    this.symbol = symbol
+    this.name = name
     this.address = validateAndParseAddress(address)
   }
 
@@ -74,7 +85,7 @@ export const WNATIVE = {
   ),
   [ChainId.ARB_GOERLI]: new Token(
     ChainId.ARB_GOERLI,
-    '0x0258c48dD2Fd053f9031FCab136C63213cA839C8',
+    '0xaE4EC9901c3076D0DdBe76A520F9E90a6227aCB7',
     18,
     'WETH',
     'Wrapped ETH'

@@ -2,7 +2,7 @@ import invariant from 'tiny-invariant'
 
 import { ChainId, ONE, TradeType, ZERO } from '../constants'
 import { sortedInsert } from '../utils'
-import { Currency, CAVAX } from './currency'
+import { Currency } from './currency'
 import { CurrencyAmount } from './fractions/currencyAmount'
 import { Fraction } from './fractions/fraction'
 import { Percent } from './fractions/percent'
@@ -89,13 +89,13 @@ export interface BestTradeOptions {
  */
 function wrappedAmount(currencyAmount: CurrencyAmount, chainId: ChainId): TokenAmount {
   if (currencyAmount instanceof TokenAmount) return currencyAmount
-  if (currencyAmount.currency === CAVAX) return new TokenAmount(WAVAX[chainId], currencyAmount.raw)
+  if (currencyAmount.currency.isNative) return new TokenAmount(WAVAX[chainId], currencyAmount.raw)
   invariant(false, 'CURRENCY')
 }
 
 function wrappedCurrency(currency: Currency, chainId: ChainId): Token {
   if (currency instanceof Token) return currency
-  if (currency === CAVAX) return WAVAX[chainId]
+  if (currency.isNative) return WAVAX[chainId]
   invariant(false, 'CURRENCY')
 }
 
@@ -181,14 +181,14 @@ export class Trade {
     this.inputAmount =
       tradeType === TradeType.EXACT_INPUT
         ? amount
-        : route.input === CAVAX
-        ? CurrencyAmount.ether(amounts[0].raw)
+        : route.input.isNative
+        ? CurrencyAmount.ether(chainId, amounts[0].raw)
         : amounts[0]
     this.outputAmount =
       tradeType === TradeType.EXACT_OUTPUT
         ? amount
-        : route.output === CAVAX
-        ? CurrencyAmount.ether(amounts[amounts.length - 1].raw)
+        : route.output.isNative
+        ? CurrencyAmount.ether(chainId, amounts[amounts.length - 1].raw)
         : amounts[amounts.length - 1]
     this.executionPrice = new Price(
       this.inputAmount.currency,
@@ -216,7 +216,7 @@ export class Trade {
         .multiply(this.outputAmount.raw).quotient
       return this.outputAmount instanceof TokenAmount
         ? new TokenAmount(this.outputAmount.token, slippageAdjustedAmountOut)
-        : CurrencyAmount.ether(slippageAdjustedAmountOut)
+        : CurrencyAmount.ether(this.chainId, slippageAdjustedAmountOut)
     }
   }
 
@@ -232,7 +232,7 @@ export class Trade {
       const slippageAdjustedAmountIn = new Fraction(ONE).add(slippageTolerance).multiply(this.inputAmount.raw).quotient
       return this.inputAmount instanceof TokenAmount
         ? new TokenAmount(this.inputAmount.token, slippageAdjustedAmountIn)
-        : CurrencyAmount.ether(slippageAdjustedAmountIn)
+        : CurrencyAmount.ether(this.chainId, slippageAdjustedAmountIn)
     }
   }
 

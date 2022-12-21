@@ -1,7 +1,7 @@
 import { ChainId } from '../constants'
 import invariant from 'tiny-invariant'
 
-import { Currency, CAVAX } from './currency'
+import { Currency } from './currency'
 import { Token, WAVAX } from './token'
 import { Pair } from './pair'
 import { Price } from './fractions/price'
@@ -21,13 +21,13 @@ export class Route {
     )
     invariant(
       (input instanceof Token && pairs[0].involvesToken(input)) ||
-        (input === CAVAX && pairs[0].involvesToken(WAVAX[pairs[0].chainId])),
+        (input.isNative && pairs[0].involvesToken(WAVAX[pairs[0].chainId])),
       'INPUT'
     )
     invariant(
       typeof output === 'undefined' ||
         (output instanceof Token && pairs[pairs.length - 1].involvesToken(output)) ||
-        (output === CAVAX && pairs[pairs.length - 1].involvesToken(WAVAX[pairs[0].chainId])),
+        (output.isNative && pairs[pairs.length - 1].involvesToken(WAVAX[pairs[0].chainId])),
       'OUTPUT'
     )
 

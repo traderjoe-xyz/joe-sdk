@@ -1,5 +1,5 @@
 import { currencyEquals } from '../token'
-import { Currency, CAVAX } from '../currency'
+import { Currency, CNATIVE } from '../currency'
 import invariant from 'tiny-invariant'
 import JSBI from 'jsbi'
 import _Big from 'big.js'
@@ -15,11 +15,12 @@ export class CurrencyAmount extends Fraction {
   public readonly currency: Currency
 
   /**
-   * Helper that calls the constructor with the ETHER currency
-   * @param amount ether amount in wei
+   * Helper that calls the constructor with the CNATIVE currency
+   * @param chainId the chain on which the CNATIVE exists
+   * @param rawAmount CNATIVE amount in wei
    */
-  public static ether(amount: BigintIsh): CurrencyAmount {
-    return new CurrencyAmount(CAVAX, amount)
+  public static ether(chainId: number, amount: BigintIsh): CurrencyAmount {
+    return new CurrencyAmount(CNATIVE.onChain(chainId), amount)
   }
 
   // amount _must_ be raw, i.e. in the native representation
