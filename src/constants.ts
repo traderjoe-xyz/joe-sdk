@@ -210,7 +210,7 @@ export const INIT_CODE_HASH: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: '0x6c67ac67d0dad54be7b066edd9b4154fb5a0ab7d01232259b9ff26ebc1739ba2',
   [ChainId.AVALANCHE]: '0x0bbca9af0511ad1a1da383135cf3a8d2ac620e549ef9f6ae3a4c33c2fed0af91',
   [ChainId.ARBITRUM_ONE]: '0x5c9d12e487d245c53fb0b8dd1ba2ccc48810e6b9671311502b8632e88b0d605b',
-  [ChainId.ARB_GOERLI]: 'Oxb6ca21329f2e28f35a5fc6848619516b62c84c068b584d1497decf19662bb190'
+  [ChainId.ARB_GOERLI]: '0xb6ca21329f2e28f35a5fc6848619516b62c84c068b584d1497decf19662bb190'
 }
 
 export const MINIMUM_LIQUIDITY = JSBI.BigInt(1000)
