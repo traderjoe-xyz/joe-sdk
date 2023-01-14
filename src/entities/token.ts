@@ -89,6 +89,13 @@ export const WNATIVE = {
     18,
     'WETH',
     'Wrapped ETH'
+  ),
+  [ChainId.BNB_TESTNET]: new Token(
+    ChainId.BNB_TESTNET,
+    '0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd',
+    18,
+    'WBNB',
+    'Wrapped BNB'
   )
 }
 
