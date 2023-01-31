@@ -44,5 +44,6 @@ export * from './errors'
 export * from './entities'
 export * from './router'
 export * from './fetcher'
+export * from './abis/ts'
 
 export * from './subgraphs'
