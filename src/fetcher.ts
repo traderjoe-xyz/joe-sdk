@@ -4,8 +4,8 @@ import { getDefaultProvider } from '@ethersproject/providers'
 import { TokenAmount } from './entities/fractions/tokenAmount'
 import { Pair } from './entities/pair'
 import invariant from 'tiny-invariant'
-import ERC20 from './abis/ERC20.json'
-import IJoePair from './abis/JoePair.json'
+import ERC20ABI from './abis/json/ERC20ABI.json'
+import JoePairABI from './abis/json/JoePairABI.json'
 import { ChainId } from './constants'
 import { Token } from './entities/token'
 
@@ -38,7 +38,7 @@ export abstract class Fetcher {
     const parsedDecimals =
       typeof TOKEN_DECIMALS_CACHE?.[chainId]?.[address] === 'number'
         ? TOKEN_DECIMALS_CACHE[chainId][address]
-        : await new Contract(address, ERC20, provider).decimals().then((decimals: number): number => {
+        : await new Contract(address, ERC20ABI, provider).decimals().then((decimals: number): number => {
             TOKEN_DECIMALS_CACHE = {
               ...TOKEN_DECIMALS_CACHE,
               [chainId]: {
@@ -64,7 +64,7 @@ export abstract class Fetcher {
   ): Promise<Pair> {
     invariant(tokenA.chainId === tokenB.chainId, 'CHAIN_ID')
     const address = Pair.getAddress(tokenA, tokenB, tokenA.chainId)
-    const [reserves0, reserves1] = await new Contract(address, IJoePair.abi, provider).getReserves()
+    const [reserves0, reserves1] = await new Contract(address, JoePairABI, provider).getReserves()
     const balances = tokenA.sortsBefore(tokenB) ? [reserves0, reserves1] : [reserves1, reserves0]
     return new Pair(new TokenAmount(tokenA, balances[0]), new TokenAmount(tokenB, balances[1]), tokenA.chainId)
   }
