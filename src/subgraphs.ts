@@ -5,7 +5,7 @@ export const EXCHANGE_SUBGRAPH: { [chainId in ChainId]: string } = {
   [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/exchange',
   [ChainId.ARBITRUM_ONE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/joe-v1-arbitrum',
   [ChainId.ARB_GOERLI]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/joe-v1-arb-goerli',
-  [ChainId.BNB_CHAIN]: '',
+  [ChainId.BNB_CHAIN]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/joe-v1-bnb',
   [ChainId.BNB_TESTNET]: ''
 }
 
