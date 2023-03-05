@@ -18,7 +18,7 @@ describe('NativeCurrency', () => {
       expect(CNATIVE.onChain(56).symbol === 'BNB').toBe(true)
     })
     it('returns BNB for 97', () => {
-      expect(CNATIVE.onChain(97).symbol === 'BNB').toBe(true)
+      expect(CNATIVE.onChain(97).symbol === 'tBNB').toBe(true)
     })
   })
 })
