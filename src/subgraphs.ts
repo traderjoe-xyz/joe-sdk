@@ -107,3 +107,12 @@ export const JOEPEG_MARKETPLACE_SUBGRAPH: { [chainId in ChainId]: string } = {
   [ChainId.BNB_CHAIN]: '',
   [ChainId.BNB_TESTNET]: ''
 }
+
+export const FEE_COLLECTOR_SUBGRAPH: { [chainId in ChainId]: string } = {
+  [ChainId.FUJI]: '',
+  [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/fee-collector-avax',
+  [ChainId.ARBITRUM_ONE]: '',
+  [ChainId.ARB_GOERLI]: '',
+  [ChainId.BNB_CHAIN]: '',
+  [ChainId.BNB_TESTNET]: ''
+}
