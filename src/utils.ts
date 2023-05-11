@@ -1,9 +1,10 @@
 import invariant from 'tiny-invariant'
 import warning from 'tiny-warning'
 import JSBI from 'jsbi'
-import { getAddress } from '@ethersproject/address'
+import { createPublicClient, http, getAddress } from 'viem'
+import { arbitrum, arbitrumGoerli, avalanche, avalancheFuji, bsc, bscTestnet } from '@wagmi/chains'
 
-import { BigintIsh, ZERO, ONE, TWO, THREE, SolidityType, SOLIDITY_TYPE_MAXIMA } from './constants'
+import { BigintIsh, ZERO, ONE, TWO, THREE, SolidityType, SOLIDITY_TYPE_MAXIMA, ChainId } from './constants'
 
 export function validateSolidityTypeInstance(value: JSBI, solidityType: SolidityType): void {
   invariant(JSBI.greaterThanOrEqual(value, ZERO), `${value} is not a ${solidityType}.`)
@@ -78,5 +79,30 @@ export function sortedInsert<T>(items: T[], add: T, maxSize: number, comparator:
     }
     items.splice(lo, 0, add)
     return isFull ? items.pop()! : null
+  }
+}
+
+export const getDefaultPublicClient = (chainId: ChainId) => {
+  const chain = getChain(chainId)
+  return createPublicClient({
+    chain,
+    transport: http()
+  })
+}
+
+export const getChain = (chainId: ChainId) => {
+  switch (chainId) {
+    case ChainId.ARBITRUM_ONE:
+      return arbitrum
+    case ChainId.ARB_GOERLI:
+      return arbitrumGoerli
+    case ChainId.AVALANCHE:
+      return avalanche
+    case ChainId.FUJI:
+      return avalancheFuji
+    case ChainId.BNB_CHAIN:
+      return bsc
+    case ChainId.BNB_TESTNET:
+      return bscTestnet
   }
 }

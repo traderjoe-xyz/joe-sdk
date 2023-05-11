@@ -22,13 +22,14 @@
     "prepublishOnly": "tsdx build"
   },
   "dependencies": {
+    "@wagmi/chains": "^0.2.22",
     "big.js": "^5.2.2",
     "decimal.js-light": "^2.5.0",
-    "ethers": "^5.7.2",
     "jsbi": "^3.1.1",
     "tiny-invariant": "^1.1.0",
     "tiny-warning": "^1.0.3",
-    "toformat": "^2.0.0"
+    "toformat": "^2.0.0",
+    "viem": "^0.3.21"
   },
   "devDependencies": {
     "@types/big.js": "^4.0.5",
