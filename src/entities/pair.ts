@@ -2,8 +2,7 @@ import { Price } from './fractions/price'
 import { TokenAmount } from './fractions/tokenAmount'
 import invariant from 'tiny-invariant'
 import JSBI from 'jsbi'
-import { pack, keccak256 } from '@ethersproject/solidity'
-import { getCreate2Address } from '@ethersproject/address'
+import { getAddress, keccak256, encodePacked, toBytes, pad, ByteArray, slice, concat } from 'viem'
 
 import {
   BigintIsh,
@@ -31,15 +30,22 @@ export class Pair {
     const tokens = tokenA.sortsBefore(tokenB) ? [tokenA, tokenB] : [tokenB, tokenA] // does safety checks
 
     if (PAIR_ADDRESS_CACHE?.[tokens[0].address]?.[tokens[1].address] === undefined) {
+      const from = toBytes(getAddress(FACTORY_ADDRESS[chainId]))
+      const salt = pad(
+        keccak256(
+          encodePacked(['address', 'address'], [getAddress(tokens[0].address), getAddress(tokens[1].address)]),
+          'bytes'
+        ),
+        {
+          size: 32
+        }
+      ) as ByteArray
+      const bytecodeHash = toBytes(INIT_CODE_HASH[chainId])
       PAIR_ADDRESS_CACHE = {
         ...PAIR_ADDRESS_CACHE,
         [tokens[0].address]: {
           ...PAIR_ADDRESS_CACHE?.[tokens[0].address],
-          [tokens[1].address]: getCreate2Address(
-            FACTORY_ADDRESS[chainId],
-            keccak256(['bytes'], [pack(['address', 'address'], [tokens[0].address, tokens[1].address])]),
-            INIT_CODE_HASH[chainId]
-          )
+          [tokens[1].address]: getAddress(slice(keccak256(concat([toBytes('0xff'), from, salt, bytecodeHash])), 12))
         }
       }
     }

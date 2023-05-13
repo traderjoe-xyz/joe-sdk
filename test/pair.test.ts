@@ -19,7 +19,7 @@ describe('Pair', () => {
     it('returns the correct address', () => {
       expect(Pair.getAddress(USDT, JOE, ChainId.FUJI)).toEqual('0xd520cF33C013909AFc9Cf158D73F5460753B5ec4')
     })
-    it('returns the correct address - arb goerlli', () => {
+    it('returns the correct address - arb goerli', () => {
       expect(Pair.getAddress(gUSDT, gUSDC, ChainId.ARB_GOERLI)).toEqual('0x682d5A31C8BDf110657d92F78467D196007749e3')
     })
   })
