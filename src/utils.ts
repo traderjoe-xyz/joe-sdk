@@ -18,6 +18,7 @@ export function validateAndParseAddress(address: string): string {
     warning(address === checksummedAddress, `${address} is not checksummed.`)
     return checksummedAddress
   } catch (error) {
+    console.error(error)
     invariant(false, `${address} is not a valid address.`)
   }
 }
