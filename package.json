@@ -49,5 +49,10 @@
     "printWidth": 120,
     "semi": false,
     "singleQuote": true
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./setupTests.js"
+    ]
   }
 }
