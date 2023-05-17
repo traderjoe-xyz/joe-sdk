@@ -57,7 +57,7 @@ export const ROCKET_SUBGRAPH: { [chainId in ChainId]: string } = {
 export const SJOE_SUBGRAPH: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/sjoe-fuji',
   [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/sjoe',
-  [ChainId.ARBITRUM_ONE]: '',
+  [ChainId.ARBITRUM_ONE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/sjoe-arbitrum',
   [ChainId.ARB_GOERLI]: '',
   [ChainId.BNB_CHAIN]: '',
   [ChainId.BNB_TESTNET]: ''
@@ -111,7 +111,7 @@ export const JOEPEG_MARKETPLACE_SUBGRAPH: { [chainId in ChainId]: string } = {
 export const FEE_COLLECTOR_SUBGRAPH: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: '',
   [ChainId.AVALANCHE]: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/fee-collector-avax',
-  [ChainId.ARBITRUM_ONE]: '',
+  [ChainId.ARBITRUM_ONE]: 'https://thegraph.com/hosted-service/subgraph/traderjoe-xyz/fee-collector-arbitrum',
   [ChainId.ARB_GOERLI]: '',
   [ChainId.BNB_CHAIN]: '',
   [ChainId.BNB_TESTNET]: ''
