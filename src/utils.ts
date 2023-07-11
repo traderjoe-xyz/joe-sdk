@@ -2,7 +2,7 @@ import invariant from 'tiny-invariant'
 import warning from 'tiny-warning'
 import JSBI from 'jsbi'
 import { createPublicClient, http, getAddress } from 'viem'
-import { arbitrum, arbitrumGoerli, avalanche, avalancheFuji, bsc, bscTestnet } from '@wagmi/chains'
+import { arbitrum, arbitrumGoerli, avalanche, avalancheFuji, bsc, bscTestnet } from 'viem/chains'
 
 import { BigintIsh, ZERO, ONE, TWO, THREE, SolidityType, SOLIDITY_TYPE_MAXIMA, ChainId } from './constants'
 
